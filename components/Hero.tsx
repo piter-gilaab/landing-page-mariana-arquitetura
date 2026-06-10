@@ -1,80 +1,52 @@
-/**
- * HERO COMPONENT
- * 
- * Este é um CLIENT COMPONENT (precisa do "use client").
- * 
- * Por quê? Porque usamos Framer Motion, que precisa de JavaScript no browser
- * para executar as animações. Animações são interativas e dependem do estado
- * do DOM, então não podem ser Server Components.
- * 
- * FRAMER MOTION:
- * - motion.div: versão animável de uma div
- * - initial: estado inicial da animação
- * - animate: estado final da animação
- * - transition: como a animação acontece (duração, easing, delay)
- * 
- * TAILWIND CSS:
- * - min-h-screen: altura mínima da tela
- * - flex items-center justify-center: centraliza conteúdo
- * - text-center: texto centralizado
- */
-
-'use client'; // Marca como Client Component
+'use client';
 
 import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-linear-to-b from-[var(--background)] to-[var(--background-alt)] px-6">
-      <div className="max-w-4xl text-center">
-        
-        {/* Título principal com animação de fade-in e movimento vertical */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }} // Começa invisível e 30px abaixo
-          animate={{ opacity: 1, y: 0 }}   // Termina visível e na posição original
-          transition={{ 
-            duration: 0.8,              // Duração de 0.8 segundos
-            ease: "easeOut"             // Aceleração suave
-          }}
-          className="text-6xl md:text-7xl font-light tracking-tight text-[var(--foreground)] mb-11"
-        >
-          Mariana Borges<br />
-          <span className="font-normal text-[var(--accent-brown)]">Arquitetura</span>
-        </motion.h1>
-
-        {/* Subtítulo com animação atrasada (delay) */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.8, 
-            delay: 0.9,                 // Espera 0.3s antes de começar
-            ease: "easeOut" 
-          }}
-          className="text-lg md:text-xl text-[var(--text-muted)] font-light max-w-2xl mx-auto mb-12"
-        >
-          Muito além de compor formas e
-          materiais, ela tem o poder de transformar a forma
-          estética minimalista e sustentabilidade.
-        </motion.p>
-
-        {/* Botão CTA com animação ainda mais atrasada */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.8, 
-            delay: 0.6,                 // Espera 0.6s
-            ease: "easeOut" 
-          }}
-        >
-          <a 
-            href="/projects"
-            className="inline-block px-8 py-3 bg-[var(--accent-brown)] text-white text-sm uppercase tracking-wider hover:bg-[var(--accent-brown-dark)] transition-colors"
+    <section
+      id="home"
+      className="flex min-h-screen items-center justify-center bg-linear-to-b from-[var(--background)] to-[var(--background-alt)]"
+    >
+      <div className="w-full max-w-6xl mx-auto px-6 pt-28 pb-20 text-center sm:px-8 md:pt-32 md:pb-28 lg:px-12 lg:pb-32">
+        <div className="space-y-6 md:space-y-8">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="text-5xl font-light tracking-tight text-[var(--foreground)] sm:text-6xl md:text-7xl lg:text-8xl"
           >
-            Ver Projetos
-          </a>
-        </motion.div>
+            Mariana Borges
+            <br />
+            <span className="font-normal text-[var(--accent-brown)]">
+              Arquitetura
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+            className="max-w-3xl mx-auto text-base font-light leading-relaxed text-[var(--text-muted)] sm:text-lg md:text-xl"
+          >
+            Muito além de compor formas e materiais, ela tem o poder de
+            transformar a forma estética minimalista e sustentabilidade.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.35, ease: 'easeOut' }}
+            className="pt-2 md:pt-4"
+          >
+            <a
+              href="#projetos"
+               className="inline-flex w-full items-center justify-center rounded-sm bg-[var(--accent-brown)] px-6 py-4 text-sm font-medium uppercase tracking-wider text-white transition-colors hover:bg-[var(--accent-brown-dark)] sm:w-auto sm:px-8"
+            >
+              Ver Projetos
+            </a>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,137 +1,117 @@
-/**
- * ABOUT / TEXTO INSTITUCIONAL COMPONENT
- * 
- * Seção que apresenta a filosofia de trabalho da arquiteta.
- * 
- * POR QUÊ SEPARAR DO PORTFÓLIO?
- * - Estabelece credibilidade antes de mostrar trabalhos
- * - Permite ao visitante entender a abordagem profissional
- * - Cria conexão emocional/conceitual antes do visual
- * - Arquitetura é sobre conceito, não apenas estética
- * 
- * LAYOUT EM DUAS COLUNAS:
- * - Desktop: texto à esquerda, elemento visual à direita
- * - Mobile: empilhado verticalmente
- * - Respiro visual generoso (arquitetura = espaço)
- * 
- * PALETA MARROM USADA COM MODERAÇÃO:
- * - Títulos em marrom para destaque sutil
- * - Fundo bege claro para separação visual
- * - Blocos de cor marrom como acento visual
- * - Nunca domina, apenas pontua
- * 
- * Este é um Server Component (sem interatividade).
- */
+import Image from "next/image";
+import SectionReveal from "@/components/SectionReveal";
 
 export default function About() {
   return (
-    <section className="py-24 bg-[var(--background-alt)]">
-      <div className="max-w-full mx-auto px-4 md:px-6">
-        
-        {/* PRIMEIRO GRID: Foto à esquerda, texto à direita */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
-          
-          {/* COLUNA 1: Foto */}
-          <div className="relative flex items-center justify-center">
-            <div className="relative w-full max-w-md aspect-[3/4] rounded-sm overflow-hidden bg-[var(--gray-light)]">
-              <img
-                src="/images/foto-mariana.png"
-                alt="Mariana Borges Arquiteta"
-                className="w-full h-full object-cover"
-              />
+    <section id="sobre" className="bg-[var(--background-alt)] py-24 md:py-32 lg:py-40">
+      <div className="w-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="space-y-16 md:space-y-20 lg:space-y-24">
+          <SectionReveal>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <div className="flex justify-center">
+                <div className="relative w-full max-w-sm overflow-hidden rounded-sm bg-[var(--gray-light)] aspect-[3/4] sm:max-w-md">
+                  <Image
+                    src="/images/foto-mariana.png"
+                    alt="Mariana Borges Arquiteta"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 80vw, (max-width: 1200px) 40vw, 28rem"
+                  />
+                </div>
+              </div>
+
+              <div className="max-w-xl mx-auto text-center space-y-8 lg:mx-0 lg:text-left lg:space-y-10">
+                <h2 className="text-3xl font-light tracking-tight text-[var(--accent-brown)] sm:text-4xl lg:text-5xl">
+                  Sobre o escritório
+                </h2>
+                <p className="text-base font-light leading-relaxed text-[var(--foreground)] sm:text-lg md:leading-8">
+                  Me chamo Mariana, sou arquiteta e fundadora deste escritório,
+                  que foi criado a partir do desejo de unir sensibilidade
+                  estética e pensamento estratégico em cada projeto. Acredito
+                  que a arquitetura vai muito além de compor formas e materiais,
+                  ela tem o poder de transformar a forma como as pessoas se
+                  conectam com os espaços.
+                </p>
+              </div>
             </div>
-          </div>
+          </SectionReveal>
 
-          {/* COLUNA 2: Texto */}
-          <div className="space-y-8">
-            <h2 className="text-4xl lg:text-5xl font-light tracking-tight text-[var(--accent-brown)]">
-              Sobre o escritório
-            </h2>
-            <p className="text-lg font-light leading-relaxed text-[var(--foreground)]">
-              Me chamo Mariana, sou arquiteta e fundadora
-              deste escritório, que foi criado a partir do desejo
-              de unir sensibilidade estética e pensamento
-              estratégico em cada projeto. Acredito que a
-              arquitetura vai muito além de compor formas e
-              materiais, ela tem o poder de transformar a forma
-              como as pessoas se conectam com os espaços.
-            </p>
+          <SectionReveal delay={0.1}>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <div className="max-w-xl mx-auto text-center space-y-8 lg:mx-0 lg:text-left lg:space-y-10">
+                <div className="space-y-4 md:space-y-6">
+                  <h2 className="text-3xl font-light tracking-tight text-[var(--accent-brown)] sm:text-4xl lg:text-5xl">
+                    Arquitetura que transforma espaços em experiências
+                  </h2>
 
-          </div>
+                  <div className="space-y-4 md:space-y-6 text-[var(--foreground)]">
+                    <p className="text-base font-light leading-relaxed sm:text-lg md:leading-8">
+                      Cada projeto nasce da escuta atenta às necessidades do
+                      cliente e do diálogo respeitoso com o entorno. Acredito
+                      que a arquitetura deve ser funcional, esteticamente
+                      coerente e emocionalmente significativa.
+                    </p>
 
-        </div>
+                    <p className="text-base font-light leading-relaxed sm:text-lg md:leading-8">
+                      Minha abordagem combina{" "}
+                      <strong className="font-medium text-[var(--accent-brown-dark)]">
+                        minimalismo elegante
+                      </strong>{" "}
+                      com{" "}
+                      <strong className="font-medium text-[var(--accent-brown-dark)]">
+                        atenção aos detalhes
+                      </strong>
+                      . Valorizo materiais naturais, iluminação estratégica e a
+                      integração harmoniosa entre ambientes internos e externos.
+                    </p>
 
-        {/* SEGUNDO GRID: Texto à esquerda, foto à direita (original) */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-center mt-24">
-          
-          {/* COLUNA 1: Texto institucional */}
-          <div className="space-y-8">
-            
-            {/* Título da seção */}
-            <h2 className="text-4xl lg:text-5xl font-light tracking-tight text-[var(--accent-brown)]">
-              Arquitetura que transforma espaços em experiências
-            </h2>
+                    <p className="text-base font-light leading-relaxed text-[var(--text-muted)] sm:text-lg md:leading-8">
+                      Cada linha desenhada busca equilibrar forma e função,
+                      criando espaços que inspiram, acolhem e perduram no tempo.
+                    </p>
+                  </div>
+                </div>
 
-            {/* Filosofia de trabalho */}
-            <div className="space-y-6 text-[var(--foreground)]">
-              <p className="text-lg font-light leading-relaxed">
-                Cada projeto nasce da escuta atenta às necessidades do cliente e do diálogo 
-                respeitoso com o entorno. Acredito que a arquitetura deve ser funcional, 
-                esteticamente coerente e emocionalmente significativa.
-              </p>
+                <div className="border-t border-[var(--gray-light)] pt-6 md:pt-8">
+                  <h3 className="mb-4 text-sm uppercase tracking-wider text-[var(--text-muted)]">
+                    Princípios de atuação
+                  </h3>
+                  <ul className="space-y-4 mx-auto w-fit lg:mx-0">
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1 text-[var(--accent-brown)]">→</span>
+                      <span className="font-light text-[var(--foreground)]">
+                        Design atemporal e funcional
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1 text-[var(--accent-brown)]">→</span>
+                      <span className="font-light text-[var(--foreground)]">
+                        Sustentabilidade e materiais naturais
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1 text-[var(--accent-brown)]">→</span>
+                      <span className="font-light text-[var(--foreground)]">
+                        Respeito à identidade de cada cliente
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-              <p className="text-lg font-light leading-relaxed">
-                Minha abordagem combina <strong className="text-[var(--accent-brown-dark)] font-medium">
-                minimalismo elegante</strong> com <strong className="text-[var(--accent-brown-dark)] font-medium">
-                atenção aos detalhes</strong>. Valorizo materiais naturais, iluminação 
-                estratégica e a integração harmoniosa entre ambientes internos e externos.
-              </p>
-
-              <p className="text-lg font-light leading-relaxed text-[var(--text-muted)]">
-                Cada linha desenhada busca equilibrar forma e função, criando espaços que 
-                inspiram, acolhem e perduram no tempo.
-              </p>
+              <div className="flex justify-center">
+                <div className="relative w-full max-w-sm overflow-hidden rounded-sm bg-[var(--gray-light)] aspect-[3/4] sm:max-w-md">
+                  <Image
+                    src="/images/foto-mariana.png"
+                    alt="Mariana Borges Arquiteta"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 80vw, (max-width: 1200px) 40vw, 28rem"
+                  />
+                </div>
+              </div>
             </div>
-
-            {/* Valores em lista */}
-            <div className="pt-6 border-t border-[var(--gray-light)]">
-              <h3 className="text-sm uppercase tracking-wider text-[var(--text-muted)] mb-4">
-                Princípios de atuação
-              </h3>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="text-[var(--accent-brown)] mt-1">→</span>
-                  <span className="text-[var(--foreground)] font-light">
-                    Design atemporal e funcional
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[var(--accent-brown)] mt-1">→</span>
-                  <span className="text-[var(--foreground)] font-light">
-                    Sustentabilidade e materiais naturais
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[var(--accent-brown)] mt-1">→</span>
-                  <span className="text-[var(--foreground)] font-light">
-                    Respeito à identidade de cada cliente
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* COLUNA 2: Elemento visual - Foto */}
-          <div className="relative flex items-center justify-center">
-            <div className="relative w-full max-w-md aspect-[3/4] rounded-sm overflow-hidden bg-[var(--gray-light)]">
-              <img
-                src="/images/foto-mariana.png"
-                alt="Mariana Borges Arquiteta"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
+          </SectionReveal>
         </div>
       </div>
     </section>

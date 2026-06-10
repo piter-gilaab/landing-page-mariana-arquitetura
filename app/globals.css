@@ -1,57 +1,22 @@
-/**
- * GLOBALS.CSS
- * 
- * Estilos globais da aplicação.
- * 
- * TAILWIND CSS:
- * - @import "tailwindcss": importa todas as classes do Tailwind
- * - Tailwind gera CSS automaticamente baseado nas classes usadas nos componentes
- * 
- * CUSTOM PROPERTIES:
- * - Definimos variáveis CSS para cores e fontes
- * - Usamos as fontes do next/font (Inter e Playfair Display)
- * 
- * PALETA DE CORES - TONS DE MARROM/BEGE:
- * - Inspiração: arquitetura, materiais naturais (madeira, argila, terra)
- * - Marrom usado com moderação para elegância
- * - Bege/off-white como fundo para respiro visual
- * - Evita preto puro, preferindo tons terrosos
- * 
- * SCROLLBAR CUSTOMIZADO:
- * - Estilização sutil da barra de rolagem para browsers Webkit
- */
-
 @import "tailwindcss";
 
 :root {
-  /* === PALETA DE CORES - TONS TERROSOS === */
-  
-  /* Fundos claros (bege/off-white) */
-  --background: #faf8f5;           /* Off-white quente */
-  --background-alt: #f5f1eb;       /* Bege muito claro */
-  
-  /* Textos */
-  --foreground: #2d2520;           /* Marrom escuro (quase preto) */
-  --text-muted: #7d7268;           /* Marrom médio para textos secundários */
-  
-  /* Destaque marrom */
-  --accent-brown: #8b6f47;         /* Marrom médio (destaque principal) */
-  --accent-brown-dark: #6b5438;    /* Marrom escuro (hover) */
-  --accent-brown-light: #b8956a;   /* Marrom claro (detalhes) */
-  
-  /* Neutros */
-  --gray-light: #e5dfd8;           /* Cinza bege claro */
-  --gray-medium: #c4b9ad;          /* Cinza bege médio */
-  
-  /* Fontes customizadas (do next/font) */
+  --background: #faf8f5;
+  --background-alt: #f5f1eb;
+  --foreground: #2d2520;
+  --text-muted: #7d7268;
+  --accent-brown: #8b6f47;
+  --accent-brown-dark: #6b5438;
+  --accent-brown-light: #b8956a;
+  --gray-light: #e5dfd8;
+  --gray-medium: #c4b9ad;
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
 }
 
-/* === SCROLL SUAVE GLOBAL === */
-/* Ativa scroll suave em toda a página */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
 }
 
 @theme inline {
@@ -61,14 +26,14 @@ html {
   --font-serif: var(--font-playfair);
 }
 
-/* Reset básico */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), system-ui, sans-serif;
@@ -76,12 +41,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Títulos usam a fonte serifada elegante */
-h1, h2, h3, h4, h5, h6 {
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-playfair), Georgia, serif;
 }
 
-/* Scrollbar customizado (webkit browsers: Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -91,16 +64,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-brown-light);
   border-radius: 5px;
+  background: var(--accent-brown-light);
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-brown);
 }
-
-/* === UTILITY CLASSES - CORES CUSTOMIZADAS === */
-/* Classes para facilitar uso das cores do tema */
 
 .text-brown {
   color: var(--accent-brown);
@@ -125,4 +95,3 @@ h1, h2, h3, h4, h5, h6 {
 .border-brown {
   border-color: var(--accent-brown);
 }
-
